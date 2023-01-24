@@ -5,13 +5,42 @@ body,
     padding: 0;
     box-sizing: border-box;
     font-size: 62.5%;
+    text-align: center;
+    background-color: lightpink;
 }
 
 h1 {
-    font-size: 5rem;
+    margin-top: 15rem;
+    margin-bottom: 5rem;
+    font-size: 9rem;
 }
 
-#btn {
-    width: 3rem;
-    font-size: x-large;
+#form-input {
+    font-size: larger;
+    margin-bottom: 5rem;
+}
+
+#label {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+
+}
+
+#input1 {
+    width: 11rem;
+    height: 2rem;
+    font-size: large;
+}
+
+#button {
+    font-size: 2rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    border-radius: 50%;
+    width: 10rem;
+
+}
+
+.output {
+    font-size: 3rem;
 }

@@ -12,9 +12,9 @@ DOMSelectors.form.addEventListener("submit", function(e) {
 function displayQuote(data){
     DOMSelectors.display.innerHTML = "";
     DOMSelectors.display.insertAdjacentHTML(
-        "afterbegin", `<div class="hello">
-        <p>${data.slip.id}</p>
-        <p>${data.slip.advice}</p></div>`
+        "afterbegin", `<div class="output">
+        <p>#${data.slip.id}</p>
+        <p>"${data.slip.advice}"</p></div>`
     );
 }    
 
@@ -37,13 +37,3 @@ async function getData(num){
        
     }};
 
-
-// DOMSelectors.getData.addEventListener("click", getData);
-
-// DOMSelectors.btn.addEventListener("click", function(){
-//     getData(URL);
-// });
-
-// document.addEventListener("DOMContentLoaded", function(){
-//     getData(URL);
-// });
