@@ -1,44 +1,49 @@
 import { DOMSelectors } from "./DOM"
 import "../styles/style.css";
 
+DOMSelectors.form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const input1 = DOMSelectors.input1.value
+    console.log(input1);
+    getData(input1);
+    DOMSelectors.input1.value = "";
+});
 
+function displayQuote(data){
+    DOMSelectors.display.innerHTML = "";
+    DOMSelectors.display.insertAdjacentHTML(
+        "afterbegin", `<div class="hello">
+        <p>${data.slip.id}</p>
+        <p>${data.slip.advice}</p></div>`
+    );
+}    
 
-const URL = "https://api.goprogram.ai/inspiration";
-
-
-async function getData(URL){
+async function getData(num){
+    
     try {
-        const response = await fetch(URL)
+        const response = await fetch(`https://api.adviceslip.com/advice/${num}`);
         if(response.status < 200 || response.status >299){
             console.log(response.status);
             throw new error(response);
         } else{
             const data = await response.json();
-            const results = data.results;
 
-            function displayQuote(){
-                data.data.forEach((quote) => {
-                    document.insertAdjacentHTML(
-                        "afterbegin", `<div class="hello" id=""${quote.quote}></div>`
-                    );
-                });
-        }    displayQuote();
-    }
-    ;
+        console.log(data);
+       displayQuote(data); 
+    };
     } catch (error) {
         console.log(error);
         alert("ERROR! Please try again.");
        
     }};
-getData(URL)
 
-DOMSelectors.getData.addEventListener("click", getData);
 
-DOMSelectors.btn.addEventListener("click", function(){
-    getData(URL);
-});
+// DOMSelectors.getData.addEventListener("click", getData);
 
-document.addEventListener("DOMContentLoaded", function(){
-    getData(URL);
-});
+// DOMSelectors.btn.addEventListener("click", function(){
+//     getData(URL);
+// });
 
+// document.addEventListener("DOMContentLoaded", function(){
+//     getData(URL);
+// });
