@@ -1,6 +1,22 @@
 import { DOMSelectors } from "./DOM"
 import "../styles/style.css";
 
+
+function displayY(){
+
+
+    function getRandomIntInclusive() {
+        const min = Math.ceil(0);
+        const max = Math.floor(244);
+        return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+      }
+      const numbeR = getRandomIntInclusive();
+      getData(numbeR);
+      console.log(numbeR);
+
+}
+displayY();
+
 DOMSelectors.form.addEventListener("submit", function(e) {
     e.preventDefault();
     const input1 = DOMSelectors.input1.value
